@@ -1,0 +1,571 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Structured General Purpose Assignment
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Ted Pavlic (http://www.tedpavlic.com)
+%
+% Note:
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when 
+% writing assignment content.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage{graphicx} % Required to insert images
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{listings}
+\usepackage{color}
+\usepackage{amsmath}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C++,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in 
+
+\linespread{1.1} % Line spacing
+
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName} % Top left header
+\chead{\hmwkClass\ (\hmwkClassInstructor\ \hmwkClassTime): \hmwkTitle} % Top center header
+\rhead{\firstxmark} % Top right header
+\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT STRUCTURE COMMANDS
+%	Skip this unless you know what you're doing
+%----------------------------------------------------------------------------------------
+
+% Header and footer for when a page split occurs within a problem environment
+\newcommand{\enterProblemHeader}[1]{
+\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+}
+
+% Header and footer for when a page split occurs between problem environments
+\newcommand{\exitProblemHeader}[1]{
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1}{}\nobreak
+}
+
+\setcounter{secnumdepth}{0} % Removes default section numbers
+\newcounter{homeworkProblemCounter} % Creates a counter to keep track of the number of problems
+
+\newcommand{\homeworkProblemName}{}
+\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]{ % Makes a new environment called homeworkProblem which takes 1 argument (custom name) but the default is "Problem #"
+\stepcounter{homeworkProblemCounter} % Increase counter for number of problems
+\renewcommand{\homeworkProblemName}{#1} % Assign \homeworkProblemName the name of the problem
+\section{\homeworkProblemName} % Make a section in the document with the custom problem count
+\enterProblemHeader{\homeworkProblemName} % Header and footer within the environment
+}{
+\exitProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+
+\newcommand{\problemAnswer}[1]{ % Defines the problem answer command with the content as the only argument
+\noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}} % Makes the box around the problem answer and puts the content inside
+}
+
+\newcommand{\homeworkSectionName}{}
+\newenvironment{homeworkSection}[1]{ % New environment for sections within homework problems, takes 1 argument - the name of the section
+\renewcommand{\homeworkSectionName}{#1} % Assign \homeworkSectionName to the name of the section from the environment argument
+\subsection{\homeworkSectionName} % Make a subsection with the custom name of the subsection
+\enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]} % Header and footer within the environment
+}{
+\enterProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+   
+%----------------------------------------------------------------------------------------
+%	NAME AND CLASS SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\hmwkTitle}{Homework 1} % Assignment title
+\newcommand{\hmwkDueDate}{Sep 11,\ 2014} % Due date
+\newcommand{\hmwkClass}{MTH 9821} % Course/class
+\newcommand{\hmwkClassTime}{Weiyi Chen, Xia Hua, Sam Pfeiffer, Xiaoyu Zhang} % Class/lecture time
+\newcommand{\hmwkClassInstructor}{} % Teacher/lecturer
+\newcommand{\hmwkAuthorName}{} % Your name
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title{
+\vspace{2in}
+\textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+\normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\
+\vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+\vspace{3in}
+}
+
+\author{\textbf{\hmwkAuthorName}}
+\date{} % Insert date here if you want it to appear below your name
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\setcounter{tocdepth}{1} % Uncomment this line if you don't want subsections listed in the ToC
+
+%\newpage
+%\tableofcontents
+\textbf{Weiyi Chen:} \#4, 5, 6, 7, 8 \\
+\textbf{Xia Hua:} \#1, 2, 6, 7, 8 \\
+\textbf{Sam Pfeiffer:} \#3, 4, 5, 7, 8 \\
+\textbf{Xiaoyu Zhang:} \#1, 2, 3, 7, 8 
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 1
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    Since $L_2$ and $U_1$ are nonsingular, they have inverses. This allows us to say,
+    \begin{align}
+        L_1U_1 &= L_2U_2 \\
+        L_2^{-1}L_1U_1U_1^{-1} &= L_2^{-1}L_2U_2U_1^{-1} \\
+        L_2^{-1}L_1 &= U_2U_1^{-1}
+    \end{align}
+    From the properties of triangular matrices, $U_1U_1^{-1}$ is upper triangular and $L_2^{-1}L_1$ is lower triagular. For them to be equal it must be that $U_2U_1^{-1}$ and $L_2^{-1}L_1$ are diagonal matrices. Define the diagonal matrix
+    \begin{equation}
+        D = U_2U_1^{-1} = L_2^{-1}L_1
+    \end{equation}
+    then we have
+    \begin{align}
+        D = U_2U_1^{-1} &\Rightarrow U_2=DU_1 \\
+        D = L_2^{-1}L_1 &\Rightarrow L_2=L_1D^{-1}
+    \end{align}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 2
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    Let's say the given matrix is $A$. Apply the Pseudocde for LU decomposition without pivoting (Table 2.5 on textbook) to $A$, i.e.,
+    \begin{lstlisting}
+        [L,U] = lu_no_pivoting(A)
+    \end{lstlisting}
+    We generate the output as, the lower triangular matrix with entries $1$ on main diagonal,
+    \begin{equation}
+        L = \left(\begin{array}{ccccc}
+        1 & 0 & 0 & 0 & 0 \\
+        -1 & 1 & 0 & 0 & 0 \\
+        -1 & -1 & 1 & 0 & 0 \\
+        -1 & -1 & -1 & 1 & 0 \\
+        -1 & -1 & -1 & -1 & 1
+        \end{array} \right)
+    \end{equation}
+    and the upper triangular matrix
+    \begin{equation}
+        U = \left(\begin{array}{ccccc}
+        1 & 0 & 0 & 0 & 1 \\
+        0 & 1 & 0 & 0 & 2 \\
+        0 & 0 & 1 & 0 & 4 \\
+        0 & 0 & 0 & 1 & 8 \\
+        0 & 0 & 0 & 0 & 16
+        \end{array} \right)
+    \end{equation}
+    such that $A=LU$.
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 3
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    \begin{homeworkSection}{(i)}
+        The $2\times2$ leading principle minor of $A$ is
+        \begin{equation}
+            det\left(\begin{array}{cc}2&-1\\-1&1\end{array}\right) = 2 \times 1 - (-2) \times (-1) = 0
+        \end{equation}
+    \end{homeworkSection}
+    \begin{homeworkSection}{(ii)}
+        Let $L$ and $U$ be the LU factors of $A$. The entries of the first row of $U$ are given $U(1,k)=A(1,k)$ for $k=1:3$:
+        \begin{equation}
+            U(1,1) = 2, U(1,2) = -1, U(1,3) = 1
+        \end{equation}
+        The entries of the first column of $L$ are given by $L(k,1)=A(k,1)/U(1,1)$ for $k=1:3$:
+        \begin{equation}
+            L(1,1)=1, L(2,1)=\frac{-2}{U(1,1)}=-1, L(3,1)=\frac{4}{U(1,1)}=2
+        \end{equation}
+        The current forms of $L$ and $U$ are
+        \begin{equation}
+            L = \left(\begin{array}{ccc}
+            1 & 0 & 0 \\
+            -1 & 1 & 0 \\
+            2 & L(3,2) & 1 
+            \end{array} \right),
+            U = \left(\begin{array}{ccc}
+            2 & -1 & 1 \\
+            0 & U(2,2) & U(2,3) \\
+            0 & 0 & U(3,3)
+            \end{array} \right)            
+        \end{equation}
+        The updated form of the $2\times2$ matrix $A(3:4,3:4)$ is
+        \begin{align}
+            A(2:3,2:3) &= A(2:3,2:3) - L(2:3,1)U(1,2:3) \\
+            &= \left(\begin{array}{cc} 1 & 3 \\ 0 & -1 \end{array}\right) - \left(\begin{array}{c} -1 \\ 2 \end{array}\right)(-1,1) \\
+            &= \left(\begin{array}{cc} 0 & 4 \\ 2 & -3 \end{array}\right)
+        \end{align}
+        The unknown entries from the second row of $U$ and from the second column of $L$ can be computed from the $2\times2$ matrix above in the same way, the entries of the first row of $U(2:3)$ are given $U(2,k)=A(2,k)$ for $k=2:3$:
+        \begin{equation}
+            U(2,2) = 0, U(2,3) = 4
+        \end{equation}
+        The entries of the first column of $L$ are given by $L(k,2)=A(k,2)/U(2,2)$ for $k=2:3$:
+        \begin{equation}
+            L(3,2) = \frac{A(3,2)}{U(2,2)}
+        \end{equation}
+        However $U(2,2)=0$, the division by $U(2,2)$ cannot be performed when trying to compute this second row of $L$.
+    \end{homeworkSection}
+    \begin{homeworkSection}{(iii)}
+        Since
+        \begin{equation}
+            det(A) = -16
+        \end{equation}
+        then $A$ is nonsingular, we just apply the Pseudocde for LU decomposition with row pivoting (Table 2.10 on textbook) to $A$, i.e.,
+        \begin{lstlisting}
+            [P,L,U] = lu_row_pivoting(A)
+        \end{lstlisting}
+        We generate the output as, the permutation matrix,
+        \begin{equation}
+            P = \left(\begin{array}{ccc}
+                0 & 0 & 1 \\
+                0 & 1 & 0 \\
+                1 & 0 & 0 
+                \end{array} \right)
+        \end{equation}
+        the lower triangular matrix with entries $1$ on main diagonal,
+        \begin{equation}
+            L = \left(\begin{array}{ccc}
+                1 & 0 & 0 \\
+                -0.5 & 1 & 0 \\
+                0.5 & -1 & 1 
+                \end{array} \right)            
+        \end{equation}
+        and the upper triangular matrix
+        \begin{equation}
+            U = \left(\begin{array}{ccc}
+                4 & 0 & -1 \\
+                0 & 1 & 2.5 \\
+                0 & 0 & 4
+                \end{array} \right)  
+        \end{equation}
+        such that $PA=LU$.
+    \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 4
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    Pseudocode for the forward substitution corresponding to a lower triangular banded matrix of band $m$
+    \begin{lstlisting}
+        Function Call:
+        x = forward_subst_band(L,b,m)
+
+        Input:
+        L = nonsingular banded lower triangular matrix of size n and band m
+        b = column vector of size n
+        m = band of banded matrix
+
+        Output:
+        x = solution to Lx=b
+
+        x[1] = b[1] / L[1,1]
+        for j = 2:n
+            sum = 0
+            for k = max{1,(j-m)}:(j-1)
+                sum = sum + L[j,k]x[k]
+            end
+            x[j] = (b[j]-sum)/L[j,j]
+        end
+    \end{lstlisting}
+    Computing $x(1)$ requires $1$ operation. At step $j=2:(m+1)$, 
+    \begin{equation}
+        \max\{1,(j-m)\} = 1
+    \end{equation}
+    the "for" loop to compute the term sum requires $2(j-1)$ operations. Thus, the "for" loop to compute $x(j)$ for $j=2:(m+1)$ requires $2(j-1)+2=2j$ operations.
+    At step $j=(m+2):n$,
+    \begin{equation}
+         \max\{1,(j-m)\} = j-m
+    \end{equation} 
+    the "for" loop to compute the term sum requires $2m$ operations. Thus, the "for" loop to compute $x(j)$ for $j=(m+2:n)$ requires $2m+2$ operations. \\
+    Then the total number of operations required by the Forward Substitution is
+    \begin{align}
+        1 + \sum_{j=2}^{m+1} {2j} + \sum_{j=m+2}^n {2m+2} &= 1 + m(m+3) + (n-m-1)(2m+2) \\
+        &= (2m+2)n -m^2 -m -1 \\
+        &= 2mn - m^2 + O(n)
+    \end{align}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 5
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    (Symmetrical to )Pseudocode for the backward substitution corresponding to an upper triangular banded matrix of band $m$
+    \begin{lstlisting}
+        Function Call:
+        x = backward_subst_band(U,b)
+
+        Input:
+        U = nonsingular banded upper triangular matrix of size n and band m
+        b = column vector of size n
+
+        Output:
+        x = solution to Ux=b
+
+        x[n] = b[n] / U[n,n]
+        for j = (n-1):1
+            sum = 0
+            for k = (j+1):min{n,(j+m)}
+                sum = sum + U[j,k]x[k]
+            end
+            x[j] = (b[j]-sum)/U[j,j]
+        end
+    \end{lstlisting}
+    Computing $x(n)$ requires $1$ operation. At step $j=(n-1):(n-m-1)$, the "for" loop to compute the term sum requires $2(n-j)$ operations. Thus, the "for" loop to compute $x(j)$ for $j=(n-1):(n-m-1)$ requires $2(n-j)+2=2n-2j+2$ operations. At step $j=(n-m-2):1$, the "for" loop to compute the term sum requires $2m$ operations. Thus, the "for" loop to compute $x(j)$ for $j=(n-m-2:1)$ requires $2m+2$ operations. \\
+    Then the total number of operations required by the Forward Substitution is
+    \begin{align}
+        1 + \sum_{j=n-m-1}^{n-1} {2n-2j+2} + \sum_{1}^{n-m-2} {2m+2} &= 1 + m(m+3) + (n-m-1)(2m+2) \\
+        &= (2m+2)n -m^2 -m -1 \\
+        &= 2mn - m^2 + O(n) 
+    \end{align}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 6
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    Given the fact that described in the problem, the pseudocode for the LU composition without pivoting for banded matrices of band $m \ge 1$ is
+    \begin{lstlisting}
+        Function Call:
+        [L,U] = lu_no_pivoting_band(A)
+
+        Input:
+        A = nonsingular banded matrix of size n and band m with LU decomposition
+
+        Output:
+        L = lower banded triangular matrix with entries 1 on main diagonal and band m
+        U = uppder banded triangular matrix with band m
+        such that A = LU
+
+        Initialize L = 0, U = 0 
+        for i = 1:(n-1)
+            for k = i:min{(i+m),n}
+                U(i,k) = A(i,k)
+                L(k,i) = A(k,i)/U(i,i)
+            end
+            for j = (i+1):min{(i+m),n}
+                for k = (i+1):min{(i+m),n}
+                    A(j,k) = A(j,k) - L(j,i)U(i,k)
+                end
+            end
+        end
+        L(n,n) = 1, U(n,n) = A(n,n)
+    \end{lstlisting}
+    At step $i = 1:(n-m-1)$, the "for" loop to compute the i-th row of $U$ and the i-th column of $L$ requires $m+1$ operations. The double "for" loop to update $A(i+1:i+m,i+1:i+m)$ requires
+    \begin{equation}
+        \sum_{i+1}^{i+m} \sum_{i+1}^{i+m} 2 = 2m^2
+    \end{equation}
+    operations. Then accounting for the outside "for" loop for $i=1:(n-m-1)$, we obtain that the operation count for the LU decomposition without pivoting is
+    \begin{equation}
+        \sum_{i=1}^{n-m-1} (2m^2+m+1) = (n-m-1)(2m^2+m+1)
+    \end{equation} 
+    At step $i = (n-m):(n-1)$, the "for" loop to compute the i-th row of $U$ and the i-th column of $L$ requires $n-i+1$ operations. The double "for" loop to update $A(i+1:n,i+1:n)$ requires
+    \begin{equation}
+        \sum_{j=i+1}^{n} \sum_{k=i+1}^{n} 2 = 2(n-i)^2
+    \end{equation}
+    operations. Then accounting for the outside "for" loop for $i=(n-m):(n-1)$, we obtain that the operation count for the LU decomposition without pivoting is
+    \begin{align}
+        \sum_{i=n-m}^{n-1} [2(n-i)^2+(n-i+1)] = \frac{2}{3}m^3 + \frac{3}{2}m^2 + \frac{11}{6}m
+    \end{align}
+    Therefore the total operation count is
+    \begin{align}
+        &~~\sum_{i=1}^{n-m-1} (2m^2+m+1) + \sum_{i=n-m}^{n-1} [2(n-i)^2+(n-i+1)] \\
+        &= (2m^2+m+1)n-\frac{1}{6}m(m+1)(8m+1)\\
+        &= 2m^2n - \frac{4}{3}m^3 + O(mn)
+    \end{align}
+\end{homeworkProblem}
+
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM 7
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}
+    C++ codes for problem 7 and 8:
+    \begin{lstlisting}
+#ifndef LU_DECOMPOSITION_HPP_
+#define LU_DECOMPOSITION_HPP_
+
+#include <Eigen/Dense>
+#include <boost/tuple/tuple.hpp>
+
+using namespace Eigen;
+
+VectorXd forward_subst(MatrixXd L, VectorXd b){
+    /*
+    @summary: Forward substitution
+    @param L: nonsingular lower triangular matrix of size n
+    @param b: column vector of size n
+    @return x: solution to Lx=b 
+    */
+    int n = sqrt(L.size());
+    VectorXd x(n);
+    x(0) = b(0) / L(0,0);
+    for (int j = 1; j < n; ++j){
+        double sum = 0;
+        for (int k = 0; k < j; ++k)
+            sum += L(j,k) * x(k);
+        x(j) = (b(j) - sum) / L(j,j);
+    }
+    return x;
+}
+
+VectorXd backward_subst(MatrixXd U, VectorXd b){
+    /*
+    @summary: Backward substitution
+    @param U: nonsingular upper triangular matrix of size n
+    @param b: column vector of size n
+    @return x: solution to Ux=b 
+    */
+    int n = sqrt(U.size());
+    VectorXd x(n);
+    x(n-1) = b(n-1) / U(n-1,n-1);
+    for (int j = n-2; j >= 0; --j){
+        double sum = 0.0;
+        for (int k = j+1; k < n; ++k)
+            sum += U(j,k) * x(k);
+        x(j) = (b(j) - sum) / U(j,j);
+    }
+    return x;
+}
+
+boost::tuple<MatrixXd, MatrixXd> lu_no_pivoting(MatrixXd A) {
+    /*
+    @summary: LU decomposition without pivoting
+    @param A: nonsingular matrix of size n with LU decomposition
+    @return L: lower triangular matrix with entries 1 on main diagonal
+    @return U: upper triangular matrix such that A=LU 
+    */
+    int n = sqrt(A.size());
+    MatrixXd L(n,n), U(n,n);
+    L.setZero();
+    U.setZero();
+    for (int i = 0; i < n-1; ++i) {
+        for (int k = i; k < n; ++k) {
+            U(i,k) = A(i,k);
+            L(k,i) = A(k,i) / U(i,i);
+        }
+        A.block(i+1,i+1,n-i-1,n-i-1) -= L.block(i+1,i,n-i-1,1)*U.block(i,i+1,1,n-i-1);
+    }
+    L(n-1,n-1) = 1;
+    U(n-1,n-1) = A(n-1, n-1);
+    return boost::make_tuple(L, U);
+}
+
+VectorXd linear_solve_LU_no_pivoting(MatrixXd A, VectorXd b) {
+    /*
+    @summary: linear solver using LU decomposition without pivoting
+    @param A: nonsingular square matrix of size n with LU decomposition
+    @param b: column vector of size n
+    @return x: solution to Ax=b
+    */
+    int n = sqrt(A.size());
+    MatrixXd L(n,n), U(n,n);
+    boost::tie(L, U) = lu_no_pivoting(A);
+    VectorXd y(n), x(n);
+    y = forward_subst(L, b);
+    x = backward_subst(U, y);
+    return x;
+}
+
+boost::tuple<VectorXi, MatrixXd, MatrixXd> lu_row_pivoting(MatrixXd A) {
+    /*
+    @summary: LU decomposition with row pivoting
+    @param A: nonsingular matrix of size n
+    @return P: permutation matrix, stored as vector of its diagonal entries
+    @return L: lower triangular matrix with entries 1 on main diagonal
+    @return U: upper triangular matrix such that PA=LU
+    */
+    int n = sqrt(A.size());
+    VectorXi P = VectorXi::LinSpaced(n,1,n);    // initialize P as an identity matrix
+    MatrixXd L(n,n), U(n,n);
+    L.setIdentity();                            // initialize L as an identity matrix
+    for (int i = 0; i < n; ++i){
+        ArrayXd::Index i_row, i_column;
+        A.block(i,i,n-i,1).array().abs().maxCoeff(&i_row, &i_column);
+        ArrayXd::Index i_max = i_row + i;       // find i_max, index of largest entry in absolute value from vector A(i:n,i)
+        A.row(i).swap(A.row(i_max));            // switch rows i and i_max of A
+        P.row(i_max).swap(P.row(i));                    // update matrix P
+        if (i > 0)
+            L.block(i,0,1,i).swap(L.block(i_max,0,1,i));        // switch rows i and i_max of L
+        for (int j = i; j < n; j++) {
+            L(j,i) = A(j,i) / A(i,i);           // compute column i of L
+            U(i,j) = A(i,j);                    // compute row i of U
+        }
+        A.block(i+1,i+1,n-i-1,n-i-1) -= L.block(i+1,i,n-i-1,1)*U.block(i,i+1,1,n-i-1);
+    }
+    L(n-1,n-1) = 1;
+    U(n-1,n-1) = A(n-1,n-1);
+    return boost::make_tuple(P,L,U);
+}
+
+#endif /* LU_DECOMPOSITION_HPP_ */
+    \end{lstlisting}
+\end{homeworkProblem}
+
+\end{document}

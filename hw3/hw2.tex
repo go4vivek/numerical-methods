@@ -1,0 +1,762 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Structured General Purpose Assignment
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Ted Pavlic (http://www.tedpavlic.com)
+%
+% Note:
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when 
+% writing assignment content.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{article}
+
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage{graphicx} % Required to insert images
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{listings}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=C++,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true
+  tabsize=3
+}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in 
+
+\linespread{1.1} % Line spacing
+
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName} % Top left header
+\chead{\hmwkClass\ (\hmwkClassInstructor\ \hmwkClassTime): \hmwkTitle} % Top center header
+\rhead{\firstxmark} % Top right header
+\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT STRUCTURE COMMANDS
+%	Skip this unless you know what you're doing
+%----------------------------------------------------------------------------------------
+
+% Header and footer for when a page split occurs within a problem environment
+\newcommand{\enterProblemHeader}[1]{
+\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+}
+
+% Header and footer for when a page split occurs between problem environments
+\newcommand{\exitProblemHeader}[1]{
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1}{}\nobreak
+}
+
+\setcounter{secnumdepth}{0} % Removes default section numbers
+\newcounter{homeworkProblemCounter} % Creates a counter to keep track of the number of problems
+
+\newcommand{\homeworkProblemName}{}
+\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]{ % Makes a new environment called homeworkProblem which takes 1 argument (custom name) but the default is "Problem #"
+\stepcounter{homeworkProblemCounter} % Increase counter for number of problems
+\renewcommand{\homeworkProblemName}{#1} % Assign \homeworkProblemName the name of the problem
+\section{\homeworkProblemName} % Make a section in the document with the custom problem count
+\enterProblemHeader{\homeworkProblemName} % Header and footer within the environment
+}{
+\exitProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+
+\newcommand{\problemAnswer}[1]{ % Defines the problem answer command with the content as the only argument
+\noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}} % Makes the box around the problem answer and puts the content inside
+}
+
+\newcommand{\homeworkSectionName}{}
+\newenvironment{homeworkSection}[1]{ % New environment for sections within homework problems, takes 1 argument - the name of the section
+\renewcommand{\homeworkSectionName}{#1} % Assign \homeworkSectionName to the name of the section from the environment argument
+\subsection{\homeworkSectionName} % Make a subsection with the custom name of the subsection
+\enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]} % Header and footer within the environment
+}{
+\enterProblemHeader{\homeworkProblemName} % Header and footer after the environment
+}
+   
+%----------------------------------------------------------------------------------------
+%	NAME AND CLASS SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\hmwkTitle}{Homework 2} % Assignment title
+\newcommand{\hmwkDueDate}{Sep 18,\ 2014} % Due date
+\newcommand{\hmwkClass}{MTH 9821} % Course/class
+\newcommand{\hmwkClassTime}{Weiyi Chen, Xia Hua, Sam Pfeiffer, Xiaoyu Zhang} % Class/lecture time
+\newcommand{\hmwkClassInstructor}{} % Teacher/lecturer
+\newcommand{\hmwkAuthorName}{} % Your name
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title{
+\vspace{2in}
+\textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+\normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\
+\vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+\vspace{3in}
+}
+
+\author{\textbf{\hmwkAuthorName}}
+\date{} % Insert date here if you want it to appear below your name
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\setcounter{tocdepth}{1} % Uncomment this line if you don't want subsections listed in the ToC
+
+%\newpage
+%\tableofcontents
+\textbf{Weiyi Chen:} $6.10,6.11,6.12,7.19,8.3,8.7,8.8$ \\
+\textbf{Xia Hua:} $6.3,6.6,6.7,6.8,6.9,6.13,7.19$ \\
+\textbf{Sam Pfeiffer:} $6.3,6.6,6.7,6.8,6.9,6.13,7.19$ \\
+\textbf{Xiaoyu Zhang:} $6.10,6.11,6.12,7.19,8.3,8.7,8.8$
+
+\newpage
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}[Problem 6.3]
+  \begin{homeworkSection}{(i)}
+    $R_{1}=1 \leq 1$, $R_{2}=0.5\leq 2$ and $R_{3}=1.1\leq 1.1$. By Gershgorin's Circle Theorem, we know that the eigenvalues $\lambda$ of A are in $disc(1,1) \cup disc(2,0.5) \cup disc(1.1,1.1)$ which lies completely in the non-negative region of the real line. Since all the eigenvalues of A are non-negative, A is symmetric positive semidefinite.
+  \end{homeworkSection}
+  \begin{homeworkSection}{(ii)}
+    We compute the principle minors of A.
+    \begin{align}
+      det\begin{pmatrix} 1 \end{pmatrix} &= 1 > 0 \\
+      det\begin{pmatrix} 1 & -0.2 \\ -0.2 & 2 \end{pmatrix} &= 1.96 > 0 \\
+      det\begin{pmatrix} 1 & -0.2 & 0.8 \\ -0.2 & 2 & 0.3 \\ 0.8 & 0.3 & 1.1 \end{pmatrix} &= 0.69 > 0
+    \end{align}
+    The leading principle minors of A is greater than 0, hence we can conclude that $A$ is symmetric positive definite.
+  \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}[Problem 6.6]
+  \begin{homeworkSection}{Answer}
+    We know the Algorithm for Cholesky decomposition of the tridiagonal matrix is: \\
+    \begin{algorithm}
+      \caption{Cholesky\_tridiagonal}\label{good}
+      \begin{algorithmic}[1]
+      \For{$i=1:(N-1)$}
+        \State $U(i,i) = \sqrt{A(i,i)}$
+        \State $U(i,i+1) = A(i,i+1)/U(i,i)$
+        \State $A(i+1, i+1) = A(i+1, i+1)-(U(i,i+1))^2$
+      \EndFor
+      \State $U(N,N) = \sqrt{A(N,N)}$
+      \State \Return $U$
+      \end{algorithmic}
+    \end{algorithm}
+    We can prove the statement by induction. When $i = 1$, it is not hard to see 
+    \begin{equation}
+      U(1,1) = \sqrt{2} = \sqrt{\frac{1+1}{1}}, U(1,2) = -\sqrt{\frac{1}{2}} = -\sqrt{\frac{1}{1+1}}
+    \end{equation}
+    Suppose when $i = k$, $U(k,k) = \sqrt{\frac{k+1}{k}}$, and $U(k,k+1) = -\sqrt{\frac{k}{k+1}}$. At this moment, the updated value of $A(k+1, k+1)$ is
+    \begin{equation}
+      A'(k+1, k+1) = A(k+1, k+1) - (U(k,k+1))^2 = 2 - \frac{k}{k+1} = \frac{(k+1)+1}{k+1}
+    \end{equation} 
+    which means
+    \begin{equation}
+      U(k+1,k+1) = \sqrt{\frac{(k+1)+1}{k+1}}, U(k+1,k+1+1) = -\sqrt{\frac{k+1}{(k+1)+1}}
+    \end{equation}
+    The induction holds. So the proof complete. The operation count for the algorithm is $4n+O(1)$.
+  \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}[Problem 6.7]
+  \begin{homeworkSection}{(i)}
+    We know $U^t_N U_N x = b$. Let $U_N x = y$, we have $U^t_N y =b$. Then we can use forward substitution algorithm to compute $y(i)$.
+    \begin{equation}
+    y(1)= \frac{b(1)}{U(1,1)}= \frac{b(1)}{\sqrt{2}};
+    \end{equation}
+    and we know $U(i,i) = \sqrt{\frac{i+1}{i}}$, and $U(i-1,i) = -\sqrt{\frac{i-1}{i-1+1}}$, so for $i = 2:N$
+    \begin{equation}
+    y(i) = \frac{b(i) - y(i-1)U(i-1,i)}{U(i,i)} = \frac{b(i) + y(i-1)\sqrt{{i-1}/{i}}}{\sqrt{{i+1}/{i}}}
+    \end{equation}
+    After $y$ is computed, then we can use backward substitution to compute $x$. It follows that
+    \begin{equation}
+    x(N)= \frac{y(N)}{U(N,N)}= \frac{y(N)\sqrt{N}}{\sqrt{N+1}};
+    \end{equation}
+    and for $i = (N-1):1$
+    \begin{equation}
+    x(i) = \frac{y(i) - x(i+1)U(i,i+1)}{U(i,i)} = \frac{y(i) + x(i+1)\sqrt{{i}/{(i+1)}}}{\sqrt{{i+1}/{i}}}.
+    \end{equation}
+    The algorithm is established.
+  \end{homeworkSection}
+  \begin{homeworkSection}{(ii)}
+    The first for loop runs $N-1$ times. Each iteration of the for loop has 9 operations. Similarly, the second for loop runs $N-1$ times with 9 operations in each iteration. Calculating $y(1)$ requires 2 operations. Calculating $x(N)$ requires 5 operations. Altogether, we have $18N+5 = 18N + O(1)$ operations.
+  \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}[Problem 6.8]
+  \begin{homeworkSection}{Answer}
+    LU decomposition for matrix $A$ is the same as LU decomposition for tridiagonal matrix without pivoting. (See Algorithm 2). \\
+    \begin{algorithm}
+      \caption{LU\_tridiagonal\_no\_pivoting}\label{LU}
+      \begin{algorithmic}[1]
+        \State $L$ is a identity matrix; $U$ is a zero matrix;
+        \State $U(1,1) = A(1,1) =2$, $U(1,2)= A(1,2) =-1$
+        \State $L(2,1) = A(2,1)/U(1,1) = -1/2$
+        \For{$i=1:(N-1)$}
+        \State $U(i,i) = A(i,i)$
+        \State $U(i,i+1) = A(i,i+1)$
+        \State $L(i+1,1) = A(i+1,i)/U(i,i)$
+        \State $A(i+1, i+1) = A(i+1, i+1)-L(i+1,1)U(i,i+1)$
+        \EndFor
+        \State $U(N,N) = A(N,N)$
+        \State \Return $U$
+      \end{algorithmic}
+    \end{algorithm}
+    Then we can prove (6.91) and (6.92) by induction. It is easy to see when $i = 1$, the induction holds. \\
+    Now suppose when $i = k$, $U(k,k) = (k+1)/k$, $U(k,k+1) = -1$, $L(k+1,k) = -k/(k+1)$. Then the next update of $A(k+1,k+1)$ is
+    \begin{equation}
+      A'(k+1,k+1) = A(k+1,k+1)-L(k+1,k)U(k,k+1) =2 - k/(k+1) = (k+2)/(k+1)
+    \end{equation}
+    So
+    \begin{align}
+      U(k+1,k+1) &= A(k+1,k+1) = ((k+1)+1)/(k+1) \\ 
+      U(k+1,k+2) &= A(k+1,k+2) = -1 \\
+      L(k+2,k+1) &=  A(k+1,k)/U(k,k) = - (k+1)/((k+1)+1)
+    \end{align}
+    The induction is done. The operation count for this algorithm is $3n+O(1)$.
+  \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}[Problem 6.9]
+  \begin{homeworkSection}{(i)}
+    Similar to problem 6.7, we know $LU x = b$. Let $U x = y$, we have $L y =b$. Then we can use forward substitution algorithm to compute $y(i)$.
+      \begin{equation}
+      y(1)= \frac{b(1)}{L(1,1)}= b(1);
+      \end{equation}
+    for $i = 2:N$
+      \begin{equation}
+      y(i) = \frac{b(i) - y(i-1)L(i,i-1)}{L(i,i)} = b(i) + y(i-1)(i-1)/i
+      \end{equation}
+      After $y$ is computed, then we can use backward substitution to compute $x$. It follows that
+      \begin{equation}
+      x(N)= \frac{y(N)}{U(N,N)}= \frac{y(N)N}{N+1};
+      \end{equation}
+      and for $i = (N-1):1$
+      \begin{equation}
+      x(i) = \frac{y(i) - x(i+1)U(i,i+1)}{U(i,i)} = \frac{y(i) + x(i+1)}{(i+1)/i}.
+      \end{equation}
+      The algorithm is established.
+  \end{homeworkSection}
+  \begin{homeworkSection}{(ii)}
+    The operation count for LU decomposition is $3N+O(1)$.
+    The operation count for forward substitution is $2N+O(1)$; the operation count for backward substitution is $3N+O(1)$. So the total operation count is $8N+O(1)$, which is optimal.
+  \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}[Problem 6.10]
+  \begin{lstlisting}
+    Function Call:
+      x = linear_solve_LU_tridiag_spd_systems(A,b)
+    Input:
+      A = tridiagonal symmetric positive definite matrix of size n
+      b(i) = column vectors of size n, i = 1:p
+    Output:
+      x(i) = solution to Ax = b(i)
+
+    for $i = 1:(n-1)$
+      L(i,i) = 1; L(i+1,i) = A(i+1,i)/A(i,i);
+      U(i,i) = A(i,i); U(i,i+1) = A(i,i+1);
+      A(i+1,i+1) = A(i+1,i+1) - L(i+1,i)U(i,i+1);
+    end
+    L(n,n) = 1; U(n,n) = A(n,n); //LU decomposition of A
+    for i = 1:n
+      y(1) = b(i)(1);
+      for j = 2:n
+        y(j) = b_{i}(j) - L(j,j-1)y(j-1); //forward substitution for Ly = b(i)
+      end
+      x(i)(n) = y(n) / U(n,n);
+      for j = (n-1):1
+        x(i)(j) = (y(j)-U(j,j+1)x(j+1)) / U(j,j) //backward substition for Ux = y
+      end
+    end
+  \end{lstlisting}
+  The operation count is: $5n^2-n-3$
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}[Problem 6.11]
+  \begin{lstlisting}
+    Function Call:
+      U = cholesky(A)
+    Input:
+      A = symmetric positive definite banded matrix of size n of band m
+    Output:
+      U = upper triangular matrix such that U^tU = A
+    for i = 1:(n-1)
+      U(i,i) = sqrt(A(i,i))
+      for k = (i+1):min{n,i+m}
+        U(i,k) = A(i,k)/U(i,i); //compute row i of U
+      end
+      for j = (i+1):n
+        for k = j:min{n,j+m}
+          A(j,k) = A(j,k) - U(i,j)U(i,k);
+        end
+      end
+    end
+    U(n,n) = sqrtA(n,n);
+  \end{lstlisting}
+  The operation count is 
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}[Problem 6.13]
+  \begin{homeworkSection}{(i)}
+    Let $disc$ be the discount factor, $T$ is the maturity, we know 
+    \begin{equation}
+      r = -\frac{\ln{(disc)}}{T},
+    \end{equation}
+    so, 
+    \begin{align}
+      r(0, 2/12) &= 0.012012016; \\
+      r(0, 5/12) &= 0.015650921; \\
+      r(0, 11/12) &= 0.019815241; \\
+      r(0, 15/12) &= 0.01820559;
+    \end{align}
+  \end{homeworkSection}
+  \begin{homeworkSection}{(ii)}
+    We can construct the linear system based on part (i).
+    According to the efficient cubic spline algorithm, the tridiagonal system is:
+    \begin{equation}
+    \begin{pmatrix}
+      5/6   &  1/4 &  0 \\
+      1/4 & 3/2 &   1/2 \\
+      0 &  1/2 &  5/3 \\
+    \end{pmatrix}w = \begin{pmatrix} 
+      -0.075098863\\
+      -0.037361875\\
+      -0.078945557
+      \end{pmatrix}
+    \end{equation}
+  \end{homeworkSection}
+  \begin{homeworkSection}{(iii)}
+    Then we have 
+    \begin{equation}
+      w = \begin{pmatrix} 0\\-0.09220133\\
+      0.006942314\\
+      -0.049450028
+       \\0
+    \end{pmatrix}
+    \end{equation}
+    Then we get the four equations for the cubic spline interpolation for the zero rate curve.
+    \begin{equation}
+      \begin{cases}
+        0.075+0.029633244x-0.09220133x^3\text{, when }0\geq x\leq 1/6\\
+        0.006767143+0.042824669x  -0.079148546x^2+0.066095763x^3\text{, when }1/6< x\leq 5/12 \\
+        0.012908145-0.001390545x+ 0.026967967x^2  -0.018797448x^3 \text{, when }5/12< x\leq 11/12\\
+        -0.020615233+ 0.108322327x  -0.092718803x^2+  0.024725014
+        x^3\text{, when }11/12< x\leq 5/4
+      \end{cases}
+    \end{equation}
+  \end{homeworkSection}
+  \begin{homeworkSection}{(iv)}
+    The coupon payment date for the 14 month quarterly bond is 2 month. 5 month, 8 month, 11 month, 14 month. The respective zero rates at these five points are: 
+    \begin{align}
+      r(0, 2/12) &= 0.012012016; \\
+      r(0, 5/12) &= 0.015650921; \\
+      r(0, 8/12) &= 0.018397264; \\
+      r(0, 11/12) &= 0.019815241; \\
+      r(0, 14/12) &= 0.018822629;
+    \end{align}
+    The corresponding cash flow payment is $\$0.625$, $\$0.625$, $\$0.625$, $\$0.625$, $\$100.625$ at these five points. The discount factor is $0.998$, 
+    $0.9935$, 
+    $0.987810064$, 
+    $0.982$, and
+    $0.978279625$
+     at these five points.
+    So we can calculate the current value of the bond: $\$100.9152061$.
+  \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}[Problem 7.19]
+   We know 
+   \begin{equation}
+   \Sigma_x = \begin{pmatrix}
+   1& 1& 0.5\\
+    1& 4& -2\\
+    0.5& -2& 9
+   \end{pmatrix}
+   \end{equation}
+   
+   After Cholesky decomposition, we find that 
+    \begin{equation}
+    U=\begin{pmatrix}
+    1   &  1 &  0.5 \\
+    0 & 1.7321 &    -1.4434 \\
+    0 &  0 &  2.5820 \\
+    \end{pmatrix}
+    \end{equation}
+    
+    So $U^t \Sigma_Z U =\Sigma_x$. That means 
+    \begin{equation}
+    \begin{pmatrix}
+    1   &  1 &  0.5 \\
+    0 & 1.7321 &    -1.4434 \\
+    0 &  0 &  2.5820 \\
+    \end{pmatrix}
+    \begin{pmatrix}
+    Z_1\\Z_2\\Z_3
+    \end{pmatrix}
+    \end{equation}
+    is out desired distribution. Write it explicitly,
+    \begin{equation}
+    \begin{cases}
+    X_1 = Z_1\\
+    X_2 = Z_1 +1.7321Z_2\\
+    X_3 = 0.5Z_1 - 1.4434Z_2 +2.5820Z_3
+    \end{cases}
+    \end{equation}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}[Problem 8.3]
+  \begin{homeworkSection}{(i)}
+    The problem is same as solving 
+    \begin{equation}
+      \overline C - \overline P = PVF - K\cdot disc 
+    \end{equation}
+    It follows that the values of $PVF$ and $disc$ can be obtained by solving a least squares problem $y \approx Ax$ with $x = (PVF, disc)^t$ and with $18\times1$ matrix $A$ and the $16\times1$ column vector $y$ corresponding to $\overline C - \overline P$ for each strike. \\
+    The solution is $x=(A^tA)^{-1}A^ty$ to this least squares problem, computed as $x=least\_squares(A,y)$, we obtain
+    \begin{equation}
+      x = \left(\begin{array}{c}
+      PVF \\
+      disc
+      \end{array} \right) = \left(\begin{array}{c}
+      1869.403121 \\
+      0.997227746
+      \end{array} \right)
+    \end{equation}
+  \end{homeworkSection}
+  \begin{homeworkSection}{(ii)}
+    This is using Newton's method recursion for solving
+    \begin{align}
+      f_C(x) &= PVF \cdot N(d_1(x)) - K \cdot N(d_2(x)) - C_m  \\
+      f_P(x) &= -PVF \cdot N(-d_1(x)) + K \cdot N(-d_2(x)) - P_m 
+    \end{align}
+    with $d_1(x)$ and $d_2(x)$ given as
+    \begin{equation}
+      d_1(x) = \frac{\ln(PVF/(K\cdot disc))}{x\sqrt{T}} + \frac{x\sqrt{T}}{2}, d_2(x) = \frac{\ln(PVF/(K\cdot disc))}{x\sqrt{T}} - \frac{x\sqrt{T}}{2}
+    \end{equation}
+    The newton's method recursion is 
+    \begin{align}
+      x_{k+1} &= x_k - \frac{f_C(x_k)}{f'_C(x_k)} \\
+      x_{k+1} &= x_k - \frac{f_C(x_k)}{f'_P(x_k)}
+    \end{align}
+    After calculations, the implied volatilities are as follows (note that the $T$ above is set as $240/365$):
+    \begin{lstlisting}
+Strike  Imp_Vol(call)   Imp_Vol(put)
+1450    0.217612        0.218549
+1500    0.207823        0.208539
+1550    0.198264        0.198997
+1600    0.189059        0.189635
+1675    0.175484        0.175236
+1700    0.170474        0.170174
+1750    0.160755        0.160567
+1775    0.15649         0.155881
+1800    0.151343        0.151331
+1825    0.146385        0.146148
+1850    0.141347        0.141149
+1875    0.136558        0.136063
+1900    0.13159         0.131458
+1925    0.126686        0.126247
+1975    0.117725        0.11731
+2000    0.113451        0.114061
+2050    0.106157        0.1072
+2100    0.100717        0.102236
+    \end{lstlisting}
+    The implied volatilities from the output corresponding to calls and puts with the same strike are nearly identical, but if more precisely, the implied volatilities corresponding to puts are always a bit larger than the implied volatilities corresponding to calls.
+  \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}[Problem 8.7]
+  \begin{homeworkSection}{(i)}
+    This can be written in least squares form as $y \approx Ax$, with
+    \begin{equation}
+      x = \left( \begin{array}{c} 
+      a \\
+      b_1 \\
+      b_2 \\
+      b_3
+      \end{array} \right); y = T_3; A = (1,T_2,T_5,T_{10})
+    \end{equation}
+    Recall from the textbook the solution to the least squares problem is
+    \begin{equation}
+      x \approx (A^tA)^{-1}A^ty
+    \end{equation}
+    By using the Cholesky solver, we compute $x=linear\_solver\_choleasky(A^tA,A^ty)$ with $A$ and $y$ given above, we obtain that
+    \begin{equation}
+      x = \left( \begin{array}{c} 
+      a \\
+      b_1 \\
+      b_2 \\
+      b_3
+      \end{array} \right) = \left( \begin{array}{c} 
+      0.012302 \\
+      0.127208 \\
+      0.334045 \\
+      0.529777
+      \end{array} \right)
+    \end{equation}
+    We conclude that the ordinary least square linear regression for the yield of the 3-year bond in terms of the yields of the 2-year, 5-year, and 10-year bonds is
+    \begin{equation}
+      T_3 \approx 0.012302 \cdot \textbf{1} + 0.127208 T_2 + 0.334045 T_5 + 0.529777T_{10}
+    \end{equation}
+    The approximation error is
+    \begin{equation}
+      \text{error}_{linear\_interp} = ||T_3 - T_{3,LR}|| = 0.043013
+    \end{equation}
+  \end{homeworkSection}
+  \begin{homeworkSection}{(ii)}
+    Given the linear interpolation formula
+    \begin{equation}
+      T_3 \approx T_{3,linear\_interp} = \frac{2}{3}T_2 + \frac{1}{3}T_5 
+    \end{equation}
+    The approximation error is
+    \begin{equation}
+      \text{error}_{linear\_interp} = ||T_3 - T_{3,linear\_interp}|| = 0.206613
+    \end{equation}
+  \end{homeworkSection}
+  \begin{homeworkSection}{(iii)}
+    Similar to problem 13 and problem 14, we need to apply cubic spline interpolation. We are looking for a function $f(x)$ of the form
+    \begin{equation}
+      f(x) = f_i(x) = a_i+b_ix+c_ix^2+d_ix^3, \forall x_{i-1}\le x \le x_i, \forall i=1:n
+    \end{equation}
+    such that
+    \begin{align}
+      f_i(x_{i-1}) &= v_{i-1}, \forall i = 1:n \\
+      f_i(x_i) &= v_i, \forall i = 1:n \\
+      f_i'(x_i) &= f_{i+1}'(x_i), \forall i = 1:(n-1) \\
+      f_i''(x_i) &= f_{i+1}''(x_i), \forall i = 1:(n-1)
+    \end{align}
+    Two more constraints is to require that $f_1''(x_0)=0$ and $f_n''(x_n)=0$, i.e.,
+    \begin{align}
+      2c_1 + 6d_1x_0 &= 0 \\
+      2c_n + 6d_3x_n &= 0
+    \end{align}
+    Let $\overline x$ be the $4n \times 1$ vector of the unknowns $a_i, b_i, c_i, d_i, i=1:n$, given by
+    \begin{equation}
+      \overline x(4i-3)=a_i, \overline x(4i-2)=b_i, \overline x(4i-1)=c_i, \overline x(4i)=d_i; \forall i = 1:(n-1)
+    \end{equation}
+    Above is a linear system with $4n$ equations and $4n$ unknowns which can be expressed in matrix notation as
+    \begin{equation}
+      \overline M \overline x = \overline b
+    \end{equation}
+    where $\overline b$ is an $4n \times 1$ vector given by
+    \begin{align}
+      &\overline b(1) = 0; \overline b(4n) = 0; \\
+      &\overline b(4i-2) = v_{i-1}, \overline b(4i-1)=v_i, \forall i = 1:n; \\
+      &\overline b(4i) = 0, \overline b(4i+1)=0, \forall i = 1:(n-1)  
+    \end{align}
+    and $\overline M$ is the $4n\times4n$ matrix given by (2.86) - (2.96) on textbook. \\
+    In this problem,
+    \begin{equation}
+      x_{0:2} = 2,5,10; v_{0:2} = T_2[i], T_5[i], T_{10}[i]; n =2
+    \end{equation}
+    for $i=1:15$. \\
+    We are able to solve $\overline x = \overline M^{-1} \overline b$. As for the first example, $\overline x_1$ is
+    \begin{lstlisting}
+[[  4.85328700e+00]
+ [ -2.18580000e-02]
+ [ -3.83900000e-03]
+ [  6.40000000e-04]
+ [  4.98125000e+00]
+ [ -9.86360000e-02]
+ [  1.15170000e-02]
+ [ -3.84000000e-04]]
+    \end{lstlisting}
+    that is 
+    \begin{equation}
+      f(x) = \begin{cases}
+        4.853287 -0.021858x -0.003839x^2 +0.000640x^3, &\text{ if }2 \le x \le 5 \\
+        4.981250 -0.098636x +0.011517x^2 -0.000384x^3, &\text{ if }5 \le x \le 10
+      \end{cases}
+    \end{equation}
+    Therefore after doing the same stuffs the other 14 datasets, the approximation error is
+    \begin{equation}
+      \text{error}_{cubic\_interp} = ||T_3 - T_{3,cubic\_interp}|| = 0.186435
+    \end{equation}
+  \end{homeworkSection}
+  \begin{homeworkSection}{(iv)}
+    Compare: the ordinary least squares method gives the best answer with lowest error, better than the other two methods using interpolation. For the other two, cubic interpolation generates lower error than linear interpolation, which is expected since using more parameters.
+  \end{homeworkSection}
+\end{homeworkProblem}
+
+%----------------------------------------------------------------------------------------
+%   PROBLEM
+%----------------------------------------------------------------------------------------
+
+\begin{homeworkProblem}[Problem 8.8]
+  \begin{homeworkSection}{(i)}
+    \tiny
+    \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+    Date & JPM & GS & MS & BAC & RBS & CS & UBS & RY (RBC) & BCS (Barclays) \\
+    15-Oct-12 & 0.016215284 & 0.028452579 & 0.012709417 & 0.035087719 & 0.034722222 & 0.047258136 & 0.034892942 & 0.016215284 & 0.00879567 \\
+    8-Oct-12 & -0.012267848 & 0.007459559 & -0.010857143 & -0.021459227 & 0.021276596 & -0.006202924 & -0.01484375 & -0.012267848 & 0.019310345 \\
+    1-Oct-12 & 0.022295767 & 0.049524982 & 0.045400239 & 0.055492639 & 0.016826923 & 0.06713948 & 0.05090312 & 0.022295767 & 0.045421774 \\
+    24-Sep-12 & 0 & -0.026045236 & -0.019906323 & -0.030735456 & -0.066217733 & -0.075611888 & -0.057275542 & 0 & -0.03814147 \\
+    17-Sep-12 & -0.006575532 & -0.038233355 & -0.063596491 & -0.046073298 & -0.011098779 & -0.009952402 & -0.041543027 & -0.006575532 & -0.026333558 \\
+    10-Sep-12 & 0.005568122 & 0.043239061 & 0.067915691 & 0.085227273 & 0.146310433 & 0.092155009 & 0.091497976 & 0.005568122 & 0.124525437 \\
+    4-Sep-12 & 0.026066774 & 0.10035944 & 0.138666667 & 0.102756892 & 0.093184979 & 0.098650052 & 0.107623318 & 0.026066774 & 0.132416165 \\
+    27-Aug-12 & 0.033013648 & 0.011674641 & 0.03021978 & -0.020858896 & 0.014104372 & 0.002602811 & -0.004464286 & 0.033013648 & -0.019392917 \\
+    20-Aug-12 & -0.006231672 & 0.013087736 & -0.002056203 & 0.020025031 & -0.027434842 & 0.05260274 & 0.014492754 & -0.006231672 & -0.017398509 \\
+    13-Aug-12 & 0.055727554 & 0.005654675 & -0.001368925 & 0.033635188 & 0.035511364 & 0.03811149 & 0.012844037 & 0.055727554 & 0.047743056 \\
+    6-Aug-12 & 0.003690037 & 0.020190969 & 0.060232221 & 0.041778976 & 0.033773862 & 0.022093023 & 0.012070566 & 0.003690037 & 0.085768143 \\
+    30-Jul-12 & -0.000194175 & -0.006521739 & 0.021497405 & 0.016438356 & -0.01447178 & -0.036414566 & -0.017335766 & -0.000194175 & 0.01047619 \\
+    23-Jul-12 & 0.006645817 & 0.079466667 & 0.059701493 & 0.033994334 & 0.081377152 & 0.054341406 & 0.079802956 & 0.006645817 & 0.065989848 \\
+    16-Jul-12 & 0 & -0.033505155 & -0.090714286 & -0.09603073 & -0.01236476 & -0.028686173 & -0.0505145 & 0 & -0.032416503 \\
+    9-Jul-12 & -0.002340094 & 0.020515518 & -0.006387509 & 0.020915033 & 0.031897927 & -0.021336328 & -0.029945554 & -0.002340094 & -0.002938296 \\
+    2-Jul-12 & 0.012438302 & -0.004086337 & -0.030282175 & -0.063647491 & -0.077941176 & -0.026243849 & -0.058923997 & 0.012438302 & -0.002929687 \\
+    25-Jun-12 & 0.01017152 & 0.023814632 & 0.031227821 & 0.030264817 & -0.107611549 & -0.024533333 & -0.020083682 & 0.01017152 & -0.183413078 \\
+    18-Jun-12 & 0.010072522 & -0.021209576 & -0.010533708 & 0.005069708 & -0.026819923 & -0.00424854 & -0.003336113 & 0.010072522 & -0.007125891 \\
+    11-Jun-12 & 0.024349979 & 0.011792202 & 0.042459736 & 0.045033113 & 0.121776504 & -0.069664032 & 0.023911187 & 0.024349979 & 0.064924115 \\
+    4-Jun-12 & 0.01999579 & 0.020600672 & 0.077287066 & 0.07703281 & 0.129449838 & 0.069202324 & 0.041814947 & 0.01999579 & 0.113615023 \\
+    29-May-12 & -0.016152413 & -0.037466082 & -0.039393939 & -0.016830295 & -0.052147239 & -0.040060852 & -0.027681661 & -0.016152413 & -0.063324538 \\
+    21-May-12 & -0.03555023 & 0.012682308 & -0.007518797 & 0.018571429 & 0.039872408 & 0.007150153 & 0.026642984 & -0.03555023 & 0.024324324 \\
+    14-May-12 & -0.060600375 & -0.065019763 & -0.106783076 & -0.070385126 & -0.144611187 & -0.070716659 & -0.075533662 & -0.060600375 & -0.134165367 \\
+    7-May-12 & -0.022914757 & -0.062962963 & -0.06587202 & -0.024611399 & -0.069796954 & -0.027688048 & -0.011363636 & -0.022914757 & -0.040419162 \\
+    30-Apr-12 & -0.050643926 & -0.047367028 & -0.055687204 & -0.061968408 & -0.008805031 & -0.088346655 & -0.021445592 & -0.050643926 & -0.07093185 \\
+    23-Apr-12 & 0.018613721 & 0.017501346 & -0.02764977 & -0.013189448 & 0.039215686 & -0.054870775 & 0.01614205 & 0.018613721 & 0.063609467 \\
+    16-Apr-12 & 0.028253737 & -0.022974395 & 0.011655012 & -0.036951501 & -0.026717557 & 0.013295729 & 0.001616815 & 0.028253737 & 0.004457652 \\
+    9-Apr-12 & -0.021231044 & -0.024632227 & -0.060755337 & -0.059717698 & -0.018726592 & -0.034241245 & -0.047729022 & -0.021231044 & -0.021802326 \\
+    2-Apr-12 & -0.013725145 & -0.051282051 & -0.06355715 & -0.035602094 & -0.093891403 & -0.065454545 & -0.065467626 & -0.013725145 & -0.082666667 \\
+    26-Mar-12 & -0.000351803 & -0.014316564 & -0.03368004 & -0.027494908 & -0.014492754 & -0.023784168 & -0.014883062 & -0.000351803 & -0.042145594 \\
+    19-Mar-12 & -0.008718396 & 0.026434611 & 0.040721649 & 0.005117707 & -0.002224694 & -0.0140007 & -0.01397624 & -0.008718396 & -0.02125 \\
+    12-Mar-12 & 0.021371327 & 0.048098434 & 0.063013699 & 0.216687422 & 0.091019417 & 0.116451739 & 0.071910112 & 0.021371327 & 0.066666667 \\
+    5-Mar-12 & 0.005011634 & -0.022293262 & -0.026147279 & -0.009864365 & -0.066817667 & -0.030314513 & -0.028384279 & 0.005011634 & -0.0625 \\
+    27-Feb-12 & 0.044299065 & 0.038438019 & 0.020141535 & 0.033121019 & -0.023230088 & -0.013826607 & -0.030345801 & 0.044299065 & 0.032258065 \\
+    21-Feb-12 & 0.023531663 & -0.000349314 & -0.034682081 & -0.017521902 & 0.021468927 & 0.031213873 & -0.002112676 & 0.023531663 & -0.000644745 \\
+    13-Feb-12 & -0.001337409 & 0.01569984 & -0.025601639 & -0.006218905 & 0.009122007 & 0.042168675 & 0.030478955 & -0.001337409 & 0.070393375 \\
+    6-Feb-12 & -0.003427266 & -0.029024201 & -0.031730293 & 0.029449424 & -0.03520352 & -0.076751947 & -0.052269601 & -0.003427266 & -0.018957346 \\
+    30-Jan-12 & 0.024780488 & 0.05153052 & 0.094411286 & 0.075757576 & 0.043628014 & 0.044134727 & 0.04379038 & 0.024780488 & 0.071843251 \\
+    23-Jan-12 & -0.004854369 & 0.02792776 & 0.011525796 & 0.03125 & 0.013969732 & 0.028264331 & 0.025773196 & -0.004854369 & 0.01026393 \\
+    17-Jan-12 & 0.044201135 & 0.098813421 & 0.106253795 & 0.069908815 & 0.167119565 & 0.150710032 & 0.147928994 & 0.044201135 & 0.127272727
+    \end{tabular}
+    \normalsize
+  \end{homeworkSection}
+  \begin{homeworkSection}{(ii)}
+    \begin{equation}
+      \begin{split}
+        r_{JPM} &= 0.71916929r_{GS} -0.03296911r_{MS} + 0.273018867r_{BAC} + 0.28177779r_{RBS} \\ 
+        &-0.04069423r_{CS} - 0.41320041r_{UBS} + 0.118243051r_{RY} - 0.0116432r_{BCS}
+      \end{split}
+    \end{equation}
+    \begin{equation}
+      error = 0.130901079
+    \end{equation}
+  \end{homeworkSection}
+  \begin{homeworkSection}{(iii)}
+    \begin{equation}
+      r_{JPM} = 0.637082r_{GS} -0.02102r_{MS} + 0.252836r_{BAC}
+    \end{equation}
+    \begin{equation}
+      error = 0.165013
+    \end{equation}
+  \end{homeworkSection}
+  \begin{homeworkSection}{(iv)}
+    \begin{equation}
+      \begin{split}
+        P_{JPM} &= -0.00121*r_{GS} -0.06248*P_{MS} + 1.311893*P_{BAC} + 1.063319*P_{RBS}  \\
+        &+0.853286*P_{CS} - 1.72196*P_{UBS} + 0.525196*P_{RY} - 0.41481*P_{BCS}
+      \end{split}
+    \end{equation}
+    \begin{equation}
+      error = 6.639531029
+    \end{equation}
+  \end{homeworkSection}
+\end{homeworkProblem}
+
+\end{document}
